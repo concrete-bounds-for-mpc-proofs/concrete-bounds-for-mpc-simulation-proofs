@@ -22,3 +22,4 @@ To run the multi-party GWM case study, cd to code/src and run
 then 
   `load GMW-N.txt`
 The proof takes around 12 minutes so you will need to wait for a result.
+Maude must be installed, see https://maude.cs.illinois.edu/wiki/Maude_download_and_installation
