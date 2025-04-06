@@ -11,7 +11,7 @@ Structure:
  then at the resulting prompt enter  
  `load dhke-otp.ipdl`
  or 
-  `load auth-to-secure.ipdl`  
+  `load auth-to-secure.ipdl` 
  or
   `load coin-toss.ipdl`
 
