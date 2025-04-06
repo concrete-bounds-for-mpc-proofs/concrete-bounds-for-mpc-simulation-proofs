@@ -4,7 +4,7 @@ Structure:
     - the DHKE-OTP case study in dhke-otp.ipdl
     - the multi-party coin toss case study in coin-toss.ipdl
     - the multi-party GMW case study in GMW-N.ipdl
- - the archive IPDL.zip contains the source code 
+ - the archive code.zip contains the source code 
  and the same case studies as in the folder case-studies. 
  To run them, extract the archive, cd to IPDL/src and run
   maude -no-banner -allow-files run-SpeX
