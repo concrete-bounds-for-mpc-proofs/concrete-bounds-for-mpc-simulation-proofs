@@ -20,5 +20,5 @@ Structure:
 To run the multi-party GWM case study, cd to IPDL/src and run
  `maude -no-banner -allow-files BaseGMWN.maude run-SpeX`
 then 
-  load GMW-N.ipdl`
+  `load GMW-N.ipdl`
 The proof takes around 12 minutes so you will need to wait for a result.
