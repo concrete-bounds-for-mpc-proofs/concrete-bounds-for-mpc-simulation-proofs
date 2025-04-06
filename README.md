@@ -6,7 +6,7 @@ Structure:
     - the multi-party GMW case study in GMW-N.ipdl
  - the archive code.zip contains the source code 
  and the same case studies as in the folder case-studies. 
- To run them, extract the archive, cd to IPDL/src and run
+ To run them, extract the archive, cd to code/src and run
   `maude -no-banner -allow-files run-SpeX`
  then at the resulting prompt enter  
  `load dhke-otp.ipdl`
@@ -17,7 +17,7 @@ Structure:
 
  Note that the latter is a strict equality proof and therefore no bounds are displayed.
  
-To run the multi-party GWM case study, cd to IPDL/src and run
+To run the multi-party GWM case study, cd to code/src and run
  `maude -no-banner -allow-files BaseGMWN.maude run-SpeX`
 then 
   `load GMW-N.ipdl`
