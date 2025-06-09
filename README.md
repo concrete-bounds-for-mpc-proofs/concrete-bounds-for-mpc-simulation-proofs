@@ -22,6 +22,12 @@ To run the multi-party GWM case study, cd to code/src and run
 then 
   `load GMW-N.txt`
 The proof takes around 12 minutes so you will need to wait for a result.
+In the main folder of the repository, run
 
-Maude must be installed, see https://maude.cs.illinois.edu/wiki/Maude_download_and_installation then added to the file path.
-Alternatively use `nix-shell -p maude`
+`unzip -d maude Maude-linux.zip`
+
+`unzip code.zip`
+
+`export MAUDE_LIB=./maude/:./code/src`
+
+We have tested these steps on Ubuntu Linux 24.04.
