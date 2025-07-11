@@ -22,15 +22,15 @@ To run the examples, do
 
  then at the resulting prompt enter  
  
- `load dhke-otp.txt`
+ `load code/dhke-otp.txt`
  
  or 
  
-  `load auth-to-secure.txt` 
+  `load code/auth-to-secure.txt` 
  
  or
  
-  `load coin-toss.txt`
+  `load code/coin-toss.txt`
 
  Note that the latter is a strict equality proof and therefore no bounds are displayed.
  
@@ -40,7 +40,7 @@ To run the multi-party GWM case study, do
  
  then 
  
-  `load GMW-N.txt`
+  `load code/GMW-N.txt`
 
 The proof takes around 12 minutes so you will need to wait for a result.
 
