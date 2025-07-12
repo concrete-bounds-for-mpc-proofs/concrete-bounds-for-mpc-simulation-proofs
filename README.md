@@ -4,6 +4,8 @@ Structure:
     - the DHKE-OTP case study in dhke-otp.txt
     - the multi-party coin toss case study in coin-toss.txt
     - the multi-party GMW case study in GMW-N.txt
+ - the archive Maude-linux.zip contains the version of Maude
+ that we use to run the code with       
  - the archive code.zip contains the source code 
  and the same case studies as in the folder case-studies.
 
