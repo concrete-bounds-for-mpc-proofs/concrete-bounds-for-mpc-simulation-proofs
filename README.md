@@ -42,8 +42,8 @@ To run the multi-party GWM case study, do
  
  then 
  
-  `load code/GMW-N.txt`
+  `load code/gmwn.txt`
 
-The proof takes around 12 minutes so you will need to wait for a result.
+The proof takes several minutes so you will need to wait for a result.
 
 We have tested these steps on Ubuntu Linux 24.04.
