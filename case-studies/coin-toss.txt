@@ -314,7 +314,7 @@ out : bool <- read Out[i] ; return out
 
 begin strict proof
 
-start with real over delta
+start with real over delta 
 
 add internal family AllCommitted1 indices: i bounds: bound N + 3 typed: unit 
     assigned: 
@@ -322,7 +322,8 @@ add internal family AllCommitted1 indices: i bounds: bound N + 3 typed: unit
       (when (not (i = 0))  -->  
        x : unit <- read (AllCommitted1[i - 1]) ; 
        y : unit <- read (Committed[i - 1]) ; 
-       return () ) then
+       return () ) 
+       
 add internal family SumOpened1 indices: j bounds: bound N + 3 typed: bool
     assigned:
       (when (j = 0) --> return False ) ;;
@@ -330,7 +331,8 @@ add internal family SumOpened1 indices: j bounds: bound N + 3 typed: bool
         x : bool <- read SumOpened1[j - 1] ;
         y : bool <- read Opened[j - 1] ;
         return xor( (x, y) )
-      ) then
+      ) 
+      
 case distinction on group Party[bound N + 2] 
 ( 
   case: (
@@ -399,8 +401,10 @@ absorb fam SumOpened[bound (N + 2) bound (N + 3)]
   )
   
   case: (idle)
-) then 
-combine fam Party[bound N + 2] then
+) 
+
+combine fam Party[bound N + 2] 
+
 add internal family SumCommit indices: j bounds: bound N + 3 typed: bool 
     assigned: 
           (when (j = 0) --> return False) ;;
@@ -408,14 +412,16 @@ add internal family SumCommit indices: j bounds: bound N + 3 typed: bool
             xj : bool <- read SumCommit[j - 1] ;
             cj : bool <- read Commit[j - 1] ;
             return xor( (xj, cj) )
-          ) then
+          ) 
+          
 add internal family AllOpen indices: j bounds: bound N + 3 typed: unit 
     assigned: 
           ( when (j = 0) --> return () ) ;;
           ( when (not (j = 0)) --> 
             x : unit <- read AllOpen[j - 1] ;
             y : unit <- read Open[j - 1] ;
-            return () ) then            
+            return () ) 
+                     
 in the presence of 
  fam AllOpen[bound (N + 3)], fam SumCommit[bound (N + 3)], fam Opened[bound (N + 2)]
 rewrite family SumOpened1[bound (N + 3)] 
@@ -452,19 +458,30 @@ case distinction on channel SumOpened1[B] (
   )
 ) then 
    merge cases for chn SumOpened1[B] 
-) then
+) 
+
 on branch honest(i) of family Out[bound N + 2] (
    subst  fam SumOpened1[bound (N + 3)] into fam Out[bound (N + 2)]
-) then absorb fam SumOpened1[bound (N + 3)] then 
-split fam Committed[bound N + 2] on first index then
-split fam Commit[bound N + 2] on first index then
-drop read chn Commit[N + 1] from chn Committed[N + 1] then
-split fam AllCommitted1[bound N + 3] on first index then
-subst chn Committed[N + 1] into chn AllCommitted1[N + 2] then 
+) 
+
+absorb fam SumOpened1[bound (N + 3)] 
+
+split fam Committed[bound N + 2] on first index 
+
+split fam Commit[bound N + 2] on first index 
+
+drop read chn Commit[N + 1] from chn Committed[N + 1] 
+
+split fam AllCommitted1[bound N + 3] on first index 
+
+subst chn Committed[N + 1] into chn AllCommitted1[N + 2] 
+
 on branch honest(i) of family Open[bound N + 2] (
     subst chn AllCommitted1[N + 2] into fam Open[bound (N + 2)]
-) then
-absorb chn AllCommitted1[N + 2] then
+) 
+
+absorb chn AllCommitted1[N + 2] 
+
 in the presence of
    fam Committed[bound (N + 1)], 
    fam SumCommit[bound (N + 3)]
@@ -493,15 +510,21 @@ case distinction on channel AllCommitted1[B] (
 
 ) then 
 merge cases for chn AllCommitted1[B]
-) then
+) 
+
 on branch honest(i) of family Open[bound N + 2](
    subst fam AllCommitted1[bound (N + 2)] 
    into fam Open[bound (N + 2)]
-) then
-absorb fam AllCommitted1[bound (N + 2)] then
-turn neg into otherwise for fam SumCommit[bound(N + 3)] then
-unsplit Committed then
-turn neg into otherwise for fam Committed[bound N + 2] then
+) 
+
+absorb fam AllCommitted1[bound (N + 2)] 
+
+turn neg into otherwise for fam SumCommit[bound(N + 3)] 
+
+unsplit Committed 
+
+turn neg into otherwise for fam Committed[bound N + 2] 
+
 sym from idealPlusSim (
 on branch honest(i) of family Out[bound N + 2](
     subst chn OkAdvId into fam Out[bound (N + 2)]
@@ -563,7 +586,9 @@ on branch i = N + 1 of family Opened[bound N + 2] (
   rename o to x in fam Opened[bound N + 2]
 ) then
 merge cases for fam Opened[bound N + 2]
-) then
+) 
+
 restructure idealPlusSim
 
 check-proof idealPlusSim
+quit
