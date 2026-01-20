@@ -146,34 +146,44 @@ begin approx proof
 
 start with real over delta
 
-subst fam Recv[bound n] into fam Out[bound n] then
-absorb fam Recv[bound n] then
+subst fam Recv[bound n] into fam Out[bound n] 
+
+absorb fam Recv[bound n] 
+
 add internal family Dec indices: i bounds: bound n typed: msg
     assigned: 
         k : key <- read Key ;
         send : ctxt <- read Send [i] ; 
-        return dec ( (send, k) ) then
+        return dec ( (send, k) ) 
+        
 add internal family Enc indices: i bounds: bound n typed: ctxt      
     assigned:
         in : msg <- read In[i] ; 
         k : key <- read Key ;
-        samp enc ( (in, k) ) then
+        samp enc ( (in, k) ) 
+        
 sym from change fam Send[bound n] with
     e : ctxt <- read Enc[i] ; return e
     in currentProtocol(
         subst fam Enc[bound n] into fam Send[bound n]
-    ) then
+    ) 
+    
 sym from change fam Out[bound n] with
     okCtxt : unit <- read OkCtxtAdvNet[i] ;
     d : msg <- read Dec[i] ; 
     return d
     in currentProtocol(
         subst fam Dec[bound n] into fam Out[bound n]
-    ) then
-subst fam Send[bound n] into fam LeakCtxtNetAdv[bound n] then
-subst fam Send[bound n] into fam Dec[bound n] then
-absorb fam Send[bound n] then
-compose fam Dec[bound n] with fam Enc[bound n] in group then
+    ) 
+    
+subst fam Send[bound n] into fam LeakCtxtNetAdv[bound n] 
+
+subst fam Send[bound n] into fam Dec[bound n] 
+
+absorb fam Send[bound n] 
+
+compose fam Dec[bound n] with fam Enc[bound n] in group 
+
 in the presence of chn Key rewrite group Dec[bound n] and Enc[bound n]
 to (family Dec[bound n] indices: i bounds: bound n 
      ::= in : msg <- read In[i] ; return in
@@ -186,22 +196,30 @@ to (family Dec[bound n] indices: i bounds: bound n
    )   
 by induction on i bound B (
     use assumption enc-dec-correctness on chn Key, chn Dec[B], chn Enc[B]
-) then
-decompose fam Dec[bound n] with fam Enc[bound n] then 
+) 
+
+decompose fam Dec[bound n] with fam Enc[bound n] 
+
 restructure 
- (gather chn Key , fam Enc[bound n] from currentProtocol hiding chn Key) then-approx
-use approx assumption cpa then-approx
-bring declarations of hidden channels in front then
-fold fam Enc[bound n] into fam LeakCtxtNetAdv[bound n] then
-fold fam Dec[bound n] into fam Out[bound n] then
+ (gather chn Key , fam Enc[bound n] from currentProtocol hiding chn Key) 
+ 
+use approx assumption cpa 
+
+bring declarations of hidden channels in front 
+
+fold fam Enc[bound n] into fam LeakCtxtNetAdv[bound n] 
+
+fold fam Dec[bound n] into fam Out[bound n] 
+
 sym from idealPlusSim (
     subst fam OkMsgAdvId[bound n] into fam Out[bound n] then
     subst fam LeakMsgRcvdIdAdv[bound n] into fam LeakCtxtNetAdv[bound n] then
     absorb fam LeakMsgRcvdIdAdv[bound n] then
     absorb fam OkMsgAdvId[bound n]
-) then 
+) 
+
 restructure idealPlusSim
 
 check-proof idealPlusSim
-current-protocol
 show-bounds
+quit
