@@ -496,11 +496,16 @@ fold chn OkKey-BobAdvId into chn Key-Bob
 restructure idealPlusSimDHKE
 .
 
+begin approx proof
+
  start with realOTP over delta
 
- fold chn Recv into chn Out then
- subst chn Send into chn Out then 
- fold chn Send into chn LeakCtxtNetAdv then
+ fold chn Recv into chn Out 
+ 
+ subst chn Send into chn Out 
+ 
+ fold chn Send into chn LeakCtxtNetAdv 
+ 
  restructure 
   (gather  
     chn SecretKey-Alice , chn SecretKey-Bob ,
@@ -513,19 +518,29 @@ restructure idealPlusSimDHKE
    hiding 
     chn SecretKey-Alice , chn SecretKey-Bob ,
     chn Send-Alice-Bob , chn Send-Bob-Alice ,
-    chn Recv-Bob-Alice, chn Recv-Alice-Bob ) then-approx 
- call-approx dhkeProof then-approx
- bring declarations of hidden channels in front then
- subst chn Key-Alice into chn LeakCtxtNetAdv then
- fold chn Key-Alice into chn Out then
- fold chn Key-Bob into chn Out then 
- drop read chn SharedKey from chn Out then
- fold chn SharedKey into chn LeakCtxtNetAdv then
- use assumption mulFixedMsg on chn LeakCtxtNetAdv then
+    chn Recv-Bob-Alice, chn Recv-Alice-Bob ) 
+     
+ call-approx dhkeProof 
+ 
+ bring declarations of hidden channels in front 
+ 
+ subst chn Key-Alice into chn LeakCtxtNetAdv 
+ 
+ fold chn Key-Alice into chn Out
+ 
+ fold chn Key-Bob into chn Out 
+ 
+ drop read chn SharedKey from chn Out
+ 
+ fold chn SharedKey into chn LeakCtxtNetAdv
+ 
+ use assumption mulFixedMsg on chn LeakCtxtNetAdv
+ 
  sym from idealPlusSimOTP(
     fold chn OkMsgAdvId into chn Out then
     fold chn LeakMsgRcvdIdAdv into chn LeakCtxtNetAdv
- ) then 
+ ) 
+  
  restructure idealPlusSimOTP
 
  check-proof idealPlusSimOTP
