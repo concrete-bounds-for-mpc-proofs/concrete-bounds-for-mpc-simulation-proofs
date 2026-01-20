@@ -312,7 +312,10 @@ out : bool <- read Out[i] ; return out
 
 ``` proofs
 
-start with real over delta then
+begin strict proof
+
+start with real over delta
+
 add internal family AllCommitted1 indices: i bounds: bound N + 3 typed: unit 
     assigned: 
       (when (i = 0) --> return ()) ;;
