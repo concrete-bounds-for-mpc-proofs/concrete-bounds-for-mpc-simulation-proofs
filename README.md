@@ -3,7 +3,7 @@ Structure:
     - the auth-to-secure case study in auth-to-secure.txt
     - the DHKE-OTP case study in dhke-otp.txt
     - the multi-party coin toss case study in coin-toss.txt
-    - the multi-party GMW case study in GMW-N.txt
+    - the multi-party GMW case study in gmwn.txt
  - the archive Maude-linux.zip contains the version of Maude
  that we use to run the code with       
  - the archive code.zip contains the source code 
