@@ -142,6 +142,8 @@ protocol idealPlusSim =
  )
  .
 
+begin approx proof
+
 start with real over delta
 
 subst fam Recv[bound n] into fam Out[bound n] then
