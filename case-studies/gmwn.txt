@@ -23,9 +23,7 @@ include 4gmwn.proof
 
 include 5gmwn.proof
 
-end proof
-
 check-proof idealPlusSim
+size idealPlusSim
 show-bounds
 quit
-
