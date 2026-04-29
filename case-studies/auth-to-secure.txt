@@ -221,5 +221,6 @@ sym from idealPlusSim (
 restructure idealPlusSim
 
 check-proof idealPlusSim
+size idealPlusSim
 show-bounds
 quit
