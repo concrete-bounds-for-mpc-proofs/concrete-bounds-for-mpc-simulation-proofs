@@ -544,7 +544,7 @@ begin approx proof
  restructure idealPlusSimOTP
 
  check-proof idealPlusSimOTP
- 
- current-protocol
+
+ size idealPlusSimOTP
  show-bounds
  quit
